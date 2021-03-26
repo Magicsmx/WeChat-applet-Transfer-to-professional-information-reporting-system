@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="user-container" style="background-image: url('../../image/2.jpg');background-size:cover;opacity:{{1}};width:{{ScreenTotalW}}rpx;height:1182rpx;">
+<view class="container">
+  <view class="cu-capsule round">
+    <view class="cu-tag bg-yellow ">
+      学生端
+    </view>
+    <view class="cu-tag line-yellow">
+      网络空间安全学院转专业系统
+    </view>
+  </view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="denglu">
+  <view class="cu-form-group margin-top">
+		<view class="title" style="font-weight:bolder;">学号：</view>
+		<input placeholder="请输入你的学号"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title" style="font-weight:bolder;">密码：</view>
+		<input placeholder="请输入密码"></input>
+  </view>
+  </view>
+  <view class="padding flex flex-direction">
+  <button class="cu-btn bg-yellow margin-tb-sm lg " bindtap="bindViewTap_login" style="font-weight:bolder;">登 录</button>
+</view>
+</view>
+</view>

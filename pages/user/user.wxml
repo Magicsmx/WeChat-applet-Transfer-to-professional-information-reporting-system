@@ -1,0 +1,49 @@
+<!--pages/user/user.wxml-->
+
+<view class="flex-sub text-center">
+<view class="solid-bottom text-lg padding">
+  <text class="text-purple">网络空间安全学院转专业信息填报系统</text>
+</view>
+</view>
+<scroll-view scroll-x class="bg-purple nav text-center">
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect1" data-id="1">
+    <text class="cuIcon-noticefill"></text> 学院通知
+  </view>
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect2" data-id="0">
+    <text class="cuIcon-edit"></text> 信息填报
+  </view>
+  <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect3" data-id="2">
+    <text class="cuIcon-peoplefill"></text> 个人中心
+  </view>
+</scroll-view>
+
+
+<view class="main-container">
+
+<!--用户信息-->
+<view class="user-container" style="background-image: url('../../image/1.jpg');background-size:cover;opacity:{{1}};">
+    <view class="userAvatar"><open-data type="userAvatarUrl"></open-data></view>
+    <view class="userNick" ><open-data type="userNickName"></open-data></view>
+    <!-- <view class="userGender"><open-data type="userGender"></open-data></view> -->
+</view>
+
+<!--设置选项-->
+<view class="set-container">
+    <view class="set-card" bindtap="changeshenbao">
+        <image src="../../image/borrow.png" />
+        <view class="name">修改申报信息</view>
+        <view class="arrow">></view>
+    </view>
+    <view class="set-card" bindtap="notice">
+        <image src="../../image/comment.png" />
+        <view class="name">通知消息</view>
+        <view class="arrow">></view>
+    </view>
+    <view class="set-card" bindtap="exitBtnOnClick">
+        <image src="../../image/exit.png" />
+        <view class="name">退出登录</view>
+        <view class="arrow">></view>
+    </view>
+</view>
+
+</view>

@@ -1,0 +1,133 @@
+<!--index.wxml-->
+<view class="flex-sub text-center">
+	<view class="solid-bottom text-lg padding">
+  <text class="text-purple">网络空间安全学院转专业信息填报系统</text>
+	</view>
+</view>
+<scroll-view scroll-x class="bg-purple nav text-center">
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect1" data-id="1">
+    <text class="cuIcon-noticefill"></text> 学院通知
+  </view>
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect2" data-id="0">
+    <text class="cuIcon-edit"></text> 信息填报
+  </view>
+  <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect3" data-id="2">
+    <text class="cuIcon-peoplefill"></text> 个人中心
+	</view>
+
+</scroll-view>
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名：</view>
+		<input value="{{name}}" bindinput="onInputText" placeholder="请输入姓名"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">性别:</view>
+		<picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+			<view class="picker">
+				{{index1?picker1[index1]:'请选择'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">学号：</view>
+		<input value="{{stunumber}}" bindinput="onInputTextstunumber" placeholder="请输入学号"></input>
+  </view>
+	<view class="cu-form-group">
+		<view class="title">所在年级:</view>
+		<picker bindchange="PickerChange2" value="{{index2}}" range="{{picker2}}">
+			<view class="picker">
+				{{index2?picker2[index2]:'请选择'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">原学院:</view>
+		<picker bindchange="PickerChange3" value="{{index3}}" range="{{picker3}}">
+			<view class="picker">
+				{{index3?picker3[index3]:'请选择你的原学院'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所在专业：</view>
+		<input value="{{major}}" bindinput="onInputTextmajor" placeholder="请输入原专业"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">拟转入学院:</view>
+		<picker bindchange="PickerChange4" value="{{index4}}" range="{{picker4}}">
+			<view class="picker">
+				{{index4?picker4[index4]:'请选择'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">拟转入专业:</view>
+		<picker bindchange="PickerChange5" value="{{index5}}" range="{{picker5}}">
+			<view class="picker">
+				{{index5?picker5[index5]:'请选择'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">是否同意接收学院内调剂专业:</view>
+		<picker bindchange="PickerChange6" value="{{index6}}" range="{{picker6}}">
+			<view class="picker">
+				{{index6?picker6[index6]:'请选择'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">联系电话：</view>
+		<input value="{{phone}}" bindinput="onIputTextphone" placeholder="请输入电话"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">申请日期</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-12-30" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+
+	<view class="cu-form-group align-start">
+		<view class="title">申请理由</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" value="{{reason}}" bindinput="textareaBInput" placeholder="申请理由"></textarea>
+	</view>
+	
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+</form>
+
+<view class="padding flex flex-direction">
+	<button class="cu-btn bg-purple margin-tb-sm lg form-type='submit' type='primary'">保存</button>
+  <button class="cu-btn bg-purple margin-tb-sm lg">提交</button>
+</view>
+

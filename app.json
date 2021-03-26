@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/infomation_upload/infrmation_upload",
+    "pages/user/user",
+    "pages/information_upload/information_upload",
+    "pages/login_stu_or_teacher/login_stu_or_teacher"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#483D8B",
+    "navigationBarTitleText": "转专业申报系统",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
